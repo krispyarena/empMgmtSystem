@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>upload</title>
+</head>
+<body>
+	
+	<th:block th:insert="Header.html"></th:block>
+	
+	<div class="container-fluid">
+			<div class = "card-header text-center bg-info p-2">
+				<h4>Photo Upload</h4>
+			</div><br>
+			
+			
+			<div class = "card-body"><br>
+			
+			<form action="upload" method="post" enctype="multipart/form-data">
+				
+				<div class="row p-2">
+					<div class="col-4">Select</div>
+					<div class="col-6">
+						<input type="file" name="image" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row p-2">
+					<div class="col-4"></div>
+					<div class="col-6">
+						<input type="submit" value="Upload" class="btn btn-success">
+					</div>
+				</div>
+				
+				</form>
+				
+				<p style="color:green; font-family: consolas;">[[${message}]]</p>
+			</div>
+			<br>
+			<div class = "card-footer text-center bg-warning p-1">
+				<h6>©copyright2023@KotlinWithKris</h6>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

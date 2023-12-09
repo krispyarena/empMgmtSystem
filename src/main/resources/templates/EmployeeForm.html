@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>employee_form</title>
+</head>
+<body>
+	
+	<th:block th:insert="Header.html"></th:block>
+	
+	<div class="container-fluid">
+			<div class = "card-header text-center bg-info p-2">
+				<h4>Employee Registration Form</h4>
+			</div>
+			<div class = "card-body"><br>
+				
+				<form action="/employee" method="post">
+					
+					<div class = "row p-2">
+						<div class = "col-4">First Name</div>
+						<div class = "col-6">
+							<input type = "text" name = "fname" class = "form-control">
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Last Name</div>
+						<div class = "col-6">
+							<input type = "text" name = "lname" class = "form-control">
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Gender</div>
+						<div class = "col-6">
+							<input type = "radio" name = "gender" value = "Male">&nbsp; Male &nbsp;
+							<input type = "radio" name = "gender" value = "Female">&nbsp; Female &nbsp;
+							<input type = "radio" name = "gender" value = "Others">&nbsp; Others &nbsp;  
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Email Id</div>
+						<div class = "col-6">
+							<input type = "email" name = "email" class = "form-control">
+						</div>
+					</div>					
+					
+					
+					<div class = "row p-2">
+						<div class = "col-4">Date Of Birth</div>
+						<div class = "col-6">
+							<input type = "date" name = "dob" class = "form-control">
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Age</div>
+						<div class = "col-6">
+							<input type = "number" name = "age" class = "form-control">
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Phone Number</div>
+						<div class = "col-6">
+							<input type = "text" name = "phone" class = "form-control">
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Company Name</div>
+						<div class = "col-6">
+							<input type = "text" name = "companyName" class = "form-control">
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Department Name</div>
+						<div class = "col-6">
+							<select name="department" class="form-control">
+								<option value="">Select</option>
+								<option th:each="d: ${dList}" th:value="${d.id}">[[${d.dept_name}]]</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Post</div>
+						<div class = "col-6">
+							<input type = "text" name = "post" class = "form-control">
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Salary</div>
+						<div class = "col-6">
+							<input type = "number" name = "salary" class = "form-control">
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Joined Date</div>
+						<div class = "col-6">
+							<input type = "date" name = "joinDate" class = "form-control">
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Projects</div>
+						<div class = "col-6">
+							<input type = "checkbox" name = "projects" value="Share Trading">&nbsp; Share Trading Application<br>
+							<input type = "checkbox" name = "projects" value="Food Delivery">&nbsp; E-commerce Application<br>
+							<input type = "checkbox" name = "projects" value="Movie Recommendation System">&nbsp; Movie Recommendation System<br>
+							<input type = "checkbox" name = "projects" value="Employee Management System">&nbsp; Employee Management System
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Country</div>
+						<div class = "col-6">
+							<input type = "text" name = "address.country" class = "form-control">
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">City</div>
+						<div class = "col-6">
+							<input type = "text" name = "address.city" class = "form-control">
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Province</div>
+						<div class = "col-6">
+							<select name="address.province" class="form-control">
+								<option value="">Select</option>
+								<option value="Koshi">Koshi</option>
+								<option value="Madhesh">Madhesh</option>
+								<option value="Bagmati">Bagmati</option>
+								<option value="Gandaki">Gandaki</option>
+								<option value="Lumbini">Lumbini</option>
+								<option value="Karnali">Karnali</option>
+								<option value="Sudurpaschim">Sudurpaschim</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4">Zip Code</div>
+						<div class = "col-6">
+							<input type = "text" name = "address.zipcode" class = "form-control">
+						</div>
+					</div>
+					
+					<div class = "row p-2">
+						<div class = "col-4"></div>
+						<div class = "col-6">
+							<input type = "submit" value = "Add" class = "btn btn-success btn-lg">
+						</div>
+					</div>
+				</form>
+				
+							
+			</div><br>
+			<div class = "card-footer text-center bg-warning p-1">
+				<h6>©copyright2023@KotlinWithKris</h6>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

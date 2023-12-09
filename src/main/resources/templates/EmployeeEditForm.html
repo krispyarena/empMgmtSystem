@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>edit_employee</title>
+</head>
+<body>
+	
+	<th:block th:insert="Header.html"></th:block>
+	
+	<div class="container-fluid">
+			<div class = "card-header text-center bg-info p-2">
+				<h4>Employee Edit Form</h4>
+			</div>
+			<div class = "card-body"><br>
+				
+				<form action = "/employee/update" method = "post" th:object="${empObject}">
+				
+				<div class="row p-2">
+				<div class="col-4">First Name</div>
+					
+				<div class="col-6">
+					<input type="text" th:field = "*{fname}" class="form-control">
+				</div>
+					
+				</div>
+				
+				<div class="row p-2">
+				<div class="col-4">Last Name</div>
+					
+				<div class="col-6">
+					<input type="text" th:field = "*{lname}" class="form-control">
+				</div>
+					
+				</div>
+				
+				<div class="row p-2">
+				<div class="col-4">Age</div>
+					
+				<div class="col-6">
+					<input type="text" th:field = "*{age}" class="form-control">
+				</div>
+					
+				</div>
+				
+				<div class="row p-2">
+				<div class="col-4">Phone</div>
+					
+				<div class="col-6">
+					<input type="text" th:field = "*{phone}" class="form-control">
+				</div>
+					
+				</div>
+				
+				<div class="row p-2">
+				<div class="col-4"></div>
+					
+				<div class="col-6">
+					<input type="submit" value="Update" class="btn btn-success btn-lg">
+				</div>
+					
+				</div>
+				<input type = "hidden"  th:field = "*{id}">
+				</form>
+				
+			</div>
+			<div class = "card-footer text-center bg-warning p-1">
+				<h6>©copyright2023@KotlinWithKris</h6>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

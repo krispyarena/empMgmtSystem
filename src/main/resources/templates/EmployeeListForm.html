@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee List</title>
+</head>
+<body>
+	
+<th:block th:insert="Header.html"></th:block>
+ 
+ <div class="container-fluid">
+			<div class = "card-header text-center bg-info p-2">
+				<h4>List of Employees</h4>
+			</div>
+			<div class = "card-body text-center"><br>
+				
+				<table class = "table table-striped">
+					<thead>
+						<tr>
+						
+							<th>Name</th>
+							<th>Gender</th>	
+							<th>Email</th>
+							<th>Company</th>
+							<th>Post</th>
+							<th>Date of Birth</th>
+							<th>City</th>
+							<th>Joined Date</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr th:each = "e: ${eList}">
+							
+							<td>[[${e.fname+" "+ e.lname}]]</td>
+							<td>[[${e.gender}]]</td>
+							<td>[[${e.email}]]</td>
+							<td>[[${e.companyName}]]</td>
+							<td>[[${e.post}]]</td>
+							<td>[[${e.dob}]]</td>
+							<td>[[${e.address.city}]]</td>
+							<td>[[${e.joinDate}]]</td>
+							<td>
+								<a th:href = "@{/employee/edit(id=${e.id})}"><input type = "submit" value = "Edit" class = "btn btn-success"></a>
+								<a th:href = "@{/employee/delete(id=${e.id})}"><input type = "submit" value = "Delete" class = "btn btn-danger"></a>
+							</td>
+						</tr>
+					</tbody>
+					
+				</table>
+				
+				
+				
+			</div>
+			<div class = "card-footer text-center bg-warning p-1">
+				<h6>©copyright2023@KotlinWithKris</h6>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

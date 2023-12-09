@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Department List</title>
+</head>
+<body>
+	
+<th:block th:insert="Header.html"></th:block>
+ 
+ <div class="container-fluid">
+			<div class = "card-header text-center bg-info p-2">
+				<h4>List of Departments</h4>
+			</div>
+			<div class = "card-body"><br>
+				
+				<table class = "table">
+					<thead>
+						<tr>
+						
+							<th>Department Name</th>
+							<th>Head of Department</th>
+							<th>Department Contact</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr th:each = "d: ${dList}">
+							
+							<td>[[${d.dept_name}]]</td>
+							<td>[[${d.dept_head}]]</td>
+							<td>[[${d.dept_phone}]]</td>
+							<td>
+								<a th:href = "@{/department/edit(id=${d.id})}"><input type = "submit" value = "Edit" class = "btn btn-success"></a>
+								<a th:href = "@{/department/delete(id=${d.id})}"><input type = "submit" value = "Delete" class = "btn btn-danger"></a>
+							</td>
+						</tr>
+					</tbody>
+					
+				</table>
+				
+				
+				
+			</div>
+			<div class = "card-footer text-center bg-warning p-1">
+				<h6>©copyright2023@KotlinWithKris</h6>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
