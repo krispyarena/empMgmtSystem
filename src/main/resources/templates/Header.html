@@ -35,7 +35,7 @@
           <a class="nav-link" href="/employeeList">List Employee &nbsp; &nbsp;</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/contacts">Contacts &nbsp; &nbsp;</a>
+          <a class="nav-link" href="/contact">Contacts &nbsp; &nbsp;</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/gallery">Gallery &nbsp; &nbsp;</a>
@@ -43,9 +43,12 @@
         <li class="nav-item">
           <a class="nav-link" href="/upload">Upload &nbsp; &nbsp;</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile &nbsp; &nbsp;</a>
+        </li>
       </ul>
       <form class="d-flex" action="/logout">
-		  <p style="color:turquoise">Welcome [[${fname}]]</p> &nbsp; &nbsp; &nbsp;
+		  <p style="color:turquoise">Welcome [[${session.activeuser.fname}]]</p> &nbsp; &nbsp; &nbsp;
         <input type = "submit" class="btn btn-danger" value = "Logout">
       </form>
     </div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>contact</title>
+</head>
+<body>
+	
+	<th:block th:insert="Header.html"></th:block>
+	
+	<div class="container-fluid">
+			<div class = "card-header text-center bg-info p-2">
+				<h4>Contact Details</h4>
+			</div>
+			<div class = "card-body"><br>
+				
+				<form action = "/contact" method = "post">
+				
+				<div class="row p-2">
+				<div class="col-4">To</div>
+					
+				<div class="col-6">
+					<input type="email" name = "toEmail" class="form-control">
+				</div>
+					
+				</div>
+				
+				<div class="row p-2">
+				<div class="col-4">Subject</div>
+					
+				<div class="col-6">
+					<input type="text" name = "subject" class="form-control">
+				</div>
+					
+				</div>
+				
+				<div class="row p-2">
+				<div class="col-4">Message</div>
+					
+				<div class="col-6">
+					<textarea rows="10" name = "message" class="form-control"></textarea>
+				</div>
+					
+				</div>
+				
+				<div class="row p-2">
+				<div class="col-4"></div>
+					
+				<div class="col-6">
+					<input type="submit" value="Send" class="btn btn-success">
+				</div>
+					
+				</div>
+				</form>
+				
+			</div>
+			<div class = "card-footer text-center bg-warning p-1">
+				<h6>©copyright2023@KotlinWithKris</h6>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

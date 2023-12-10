@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.bway.springproject.model.Department;
 import com.bway.springproject.service.DepartmentService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class DepartmentController {
 	
@@ -19,7 +21,12 @@ public class DepartmentController {
 	private DepartmentService deptService;
 
 	@GetMapping("/department")
-	public String getDepartment() {
+	public String getDepartment(HttpSession session) {
+		
+		if (session.getAttribute("activeuser")==null) {
+			return "Login";
+		}
+		
 		return "DepartmentForm";
 	}
 	
@@ -31,21 +38,34 @@ public class DepartmentController {
 	}
 	
 	@GetMapping("/departmentList")
-	public String getDepartmentList(Model model) {
+	public String getDepartmentList(Model model, HttpSession session) {
+		
+		if (session.getAttribute("activeuser")==null) {
+			return "Login";
+		}
 		
 		model.addAttribute("dList",deptService.getAllDepts());
 		return "DepartmentListForm";
 	}
 	
 	@GetMapping("/department/delete")
-	public String delete(@RequestParam int id) {
+	public String delete(@RequestParam int id, HttpSession session) {
+		
+		if (session.getAttribute("activeuser")==null) {
+			return "Login";
+		}
 		
 		deptService.deleteDept(id);
 		return "redirect:/departmentList";
 	}
 	
 	@GetMapping("/department/edit")
-	public String edit(@RequestParam int id, Model model) {
+	public String edit(@RequestParam int id, Model model, HttpSession session) {
+		
+		if (session.getAttribute("activeuser")==null) {
+			return "Login";
+		}
+		
 		model.addAttribute("deptObject", deptService.getDeptById(id));
 		return "DepartmentEditForm";
 	}

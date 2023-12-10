@@ -13,6 +13,8 @@ import com.bway.springproject.model.Employee;
 import com.bway.springproject.service.DepartmentService;
 import com.bway.springproject.service.EmployeeService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class EmployeeController {
 
@@ -23,7 +25,11 @@ public class EmployeeController {
 	private DepartmentService deptService;
 	
 	@GetMapping("/employee")
-	public String getEmployee(Model model) {
+	public String getEmployee(Model model, HttpSession session) {
+		
+		if (session.getAttribute("activeuser")==null) {
+			return "Login";
+		}
 		
 		model.addAttribute("dList", deptService.getAllDepts());
 		
@@ -39,20 +45,34 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/employeeList")
-	public String getEmployeeList(Model model) {
+	public String getEmployeeList(Model model, HttpSession session) {
+		
+		if(session.getAttribute("activeuser")==null) {
+			return "Login";
+		}
+		
 		model.addAttribute("eList", empService.getAllEmployees());
 		return "EmployeeListForm";
 	}
 	
 	@GetMapping("/employee/delete")
-	public String delete(@RequestParam Long id) {
+	public String delete(@RequestParam Long id, HttpSession session) {
+		
+		if(session.getAttribute("activeuser")==null) {
+			return "Login";
+		}
 		
 		empService.deleteEmployee(id);
 		return "redirect:/employeeList";
 	}
 	
 	@GetMapping("/employee/edit")
-	public String edit(@RequestParam Long id, Model model) {
+	public String edit(@RequestParam Long id, Model model, HttpSession session) {
+		
+		if (session.getAttribute("activeuser") == null ) {
+			return "Login";
+		}
+		
 		model.addAttribute("empObject", empService.getEmployeeById(id));
 		return "EmployeeEditForm";
 	}
