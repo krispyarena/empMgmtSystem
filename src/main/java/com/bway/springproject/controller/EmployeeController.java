@@ -7,11 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 //import com.bway.springproject.model.Department;
 import com.bway.springproject.model.Employee;
 import com.bway.springproject.service.DepartmentService;
 import com.bway.springproject.service.EmployeeService;
+import com.bway.springproject.utils.EmployeeExcelView;
+import com.bway.springproject.utils.EmployeePdfView;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -81,5 +84,25 @@ public class EmployeeController {
 	public String update(@ModelAttribute Employee emp) {
 		empService.updateEmployee(emp);
 		return "redirect:/employeeList";
+	}
+	
+	@GetMapping("/employee/excel")
+	public ModelAndView excel() {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("eList",empService.getAllEmployees());
+		mv.setView(new EmployeeExcelView());
+		return mv;
+		
+	}
+	
+	@GetMapping("/employee/pdf")
+	public ModelAndView pdf() {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("eList",empService.getAllEmployees());
+		mv.setView(new EmployeePdfView());
+		return mv;
+		
 	}
 }

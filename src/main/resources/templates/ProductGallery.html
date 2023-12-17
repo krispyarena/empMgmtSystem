@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>gallery</title>
+</head>
+<body>
+	
+	<th:block th:insert="Header.html"></th:block>
+	
+	<div class="container-fluid">
+			<div class = "card-header text-center bg-info p-2">
+				<h4>Product Gallery</h4>
+			</div><br>
+			<div class = "card-body"><br>
+				
+<div class="card" style="width:400px" th:each = "product : ${pImageList}">
+  <img class="card-img-top" th:src = "@{${product.image}}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">[[${product.title}]]</h4>
+    <p class="card-text">[[${product.description}]]</p>
+    <a href="#" class="btn btn-success stretched-link">Add to Cart</a>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <a href="#" class = "btn btn-primary">[[${product.rating.rate}]] Stars,&nbsp;[[${product.rating.count}]] Ratings</a>
+  </div>
+</div>
+				
+				<!--<span th:each = "product : ${pImageList}">
+					<img class="p-2" th:src = "@{${product.image}}" width="300" height="250">
+				</span>	-->
+			</div>
+			<br>
+			<div class = "card-footer text-center bg-warning p-1">
+				<h6>©copyright2023@KotlinWithKris</h6>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

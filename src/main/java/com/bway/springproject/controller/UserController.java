@@ -1,5 +1,7 @@
 package com.bway.springproject.controller;
 
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +13,15 @@ import com.bway.springproject.model.User;
 import com.bway.springproject.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
+
+
+@Slf4j
 
 @Controller
 public class UserController {
+	
+	//private static final Logger log = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	private UserService userService;
@@ -30,11 +38,15 @@ public class UserController {
 		
 		if (usr != null) {
 			
+			log.info("-------------User found/Login Success-------");
+			
 			session.setAttribute("activeuser", usr);
 			session.setMaxInactiveInterval(300);
 			//model.addAttribute("fname", usr.getFname());
 			return "Home";
 		}
+		
+		log.info("-------------------Login Failed------------------");
 		model.addAttribute("message", "Invalid Credentials");
 		return "Login";
 	}
@@ -55,6 +67,7 @@ public class UserController {
 	@GetMapping("/logout")
 	public String getLogout(HttpSession session) {
 		session.invalidate();
+		log.info("----------------Logout Success-----------------------");
 		return "Login";
 	}
 	
