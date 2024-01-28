@@ -24,6 +24,14 @@
 			<version>2.1.0</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.glassfish/javax.json -->
+		<dependency>
+		    <groupId>org.glassfish</groupId>
+		    <artifactId>javax.json</artifactId>
+		    <version>1.1.4</version>
+		</dependency>
+
+		
 		<!-- For excel export -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
